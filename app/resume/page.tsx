@@ -9,6 +9,8 @@ import {
   FaReact,
   FaFigma,
   FaNodeJs,
+  FaPhp,
+  FaLaravel,
 } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -24,7 +26,7 @@ import { motion } from "framer-motion";
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam libero voluptates quod cupiditate explicabo illum rem mollitia nisi sint.",
+    "I'm a software developer who loves turning ideas into real products. Whether it's building mobile apps or backend systems, I aim to deliver solutions that make an impact.",
   info: [
     {
       fieldName: "Name",
@@ -36,12 +38,12 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "3+ Years",
+      fieldValue: "1+ Years",
     },
-    {
-      fieldName: "Twitter",
-      fieldValue: "@thanh1809221753",
-    },
+    // {
+    //   fieldName: "Twitter",
+    //   fieldValue: "@thanh1809221753",
+    // },
     {
       fieldName: "Nationality",
       fieldValue: "Vietnam",
@@ -50,10 +52,10 @@ const about = {
       fieldName: "Email",
       fieldValue: "lhqthanh1809@gmail.com",
     },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Unavailable",
-    },
+    // {
+    //   fieldName: "Freelance",
+    //   fieldValue: "Unavailable",
+    // },
     {
       fieldName: "Languages",
       fieldValue: "English, Vietnamese",
@@ -65,37 +67,12 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam libero voluptates quod cupiditate explicabo illum rem mollitia nisi sint.",
+    "I have developed hands-on experience through various projects, focusing on practical solutions and continuous improvement.",
   items: [
     {
-      company: "Tech Solution Inc.",
-      position: "Full Stack Developer",
-      duration: "2022 - Present",
-    },
-    {
-      company: "Web Design Studio",
-      position: "Font-End Developer Intern",
-      duration: "Summer 2021",
-    },
-    {
-      company: "E-commerce Startup",
-      position: "Freelance Web Developer",
-      duration: "2020 - 2021",
-    },
-    {
-      company: "Tech Academy",
-      position: "Teaching Assistant",
-      duration: "2019 - 2020",
-    },
-    {
-      company: "Digital Agency",
-      position: "UI/UX Designer",
-      duration: "2018 - 2019",
-    },
-    {
-      company: "Software Development Firm",
-      position: "Junior Developer",
-      duration: "2017 - 2018",
+      company: "Capligo Co., Ltd",
+      position: "Backend Developer",
+      duration: "2023 - 2025",
     },
   ],
 };
@@ -104,37 +81,12 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam libero voluptates quod cupiditate explicabo illum rem mollitia nisi sint.",
+    "During my studies in Information Technology, I focused on software engineering, preparing me for a career in building real-world digital solutions.",
   items: [
-    {
-      institution: "Online Course Platform",
-      degree: "Full Stack Web Developer",
-      duration: "2023",
-    },
-    {
-      institution: "Codecademy",
-      degree: "Font-end Track",
-      duration: "2022",
-    },
-    {
-      institution: "Online Course",
-      degree: "Programming Course",
-      duration: "2020 - 2021",
-    },
-    {
-      institution: "Tech Institute",
-      degree: "Certified Web Developer",
-      duration: "2019",
-    },
-    {
-      institution: "Design School",
-      degree: "Diploma in Graphic Design",
-      duration: "2016 - 2018",
-    },
     {
       institution: "Nha Trang University",
       degree: "Bachelor Degree in Software Technology",
-      duration: "2014 - 2016",
+      duration: "2021 - 2025",
     },
   ],
 };
@@ -142,7 +94,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam libero voluptates quod cupiditate explicabo illum rem mollitia nisi sint.",
+    "My skill set covers a range of technologies and tools that I use to turn ideas into functional, user-focused applications.",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -175,6 +127,14 @@ const skills = {
     {
       icon: <FaFigma />,
       name: "figma",
+    },
+    {
+      icon: <FaPhp />,
+      name: "php",
+    },
+    {
+      icon: <FaLaravel />,
+      name: "laravel",
     },
   ],
 };
@@ -312,7 +272,10 @@ function Resume() {
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[680px] mx-auto xl:mx-0">
                   {about.info.map((item, index) => {
                     return (
-                      <li key={index} className="flex items-center justify-center xl:justify-start gap-4">
+                      <li
+                        key={index}
+                        className="flex items-center justify-center xl:justify-start gap-4"
+                      >
                         <span className="text-white/60">{item.fieldName}</span>
                         <span className="text-xl">{item.fieldValue}</span>
                       </li>

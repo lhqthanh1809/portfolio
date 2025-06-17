@@ -16,25 +16,25 @@ const services = [
   },
   {
     num: "02",
-    title: "UX/UI Design",
+    title: "Backend Development",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum mollitia.",
     href: "",
   },
-  {
-    num: "03",
-    title: "Logo Design",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum mollitia.",
-    href: "",
-  },
-  {
-    num: "04",
-    title: "SEO",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum mollitia.",
-    href: "",
-  },
+  // {
+  //   num: "03",
+  //   title: "Logo Design",
+  //   description:
+  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum mollitia.",
+  //   href: "",
+  // },
+  // {
+  //   num: "04",
+  //   title: "SEO",
+  //   description:
+  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum mollitia.",
+  //   href: "",
+  // },
 ];
 
 function Services() {

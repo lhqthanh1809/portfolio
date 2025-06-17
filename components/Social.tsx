@@ -1,6 +1,6 @@
 import { ReceiptEuro } from "lucide-react";
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn, FaYoutube, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaYoutube, FaFacebook, FaTiktok } from "react-icons/fa";
 
 interface SocialProps{
     containerStyles: string,
@@ -10,19 +10,19 @@ interface SocialProps{
 const socials = [
   {
     icon: <FaGithub />,
-    path: "",
+    path: "https://github.com/ThanhThn",
   },
   {
     icon: <FaLinkedinIn />,
-    path: "",
+    path: "https://www.linkedin.com/in/thanh-l%C3%AA-ho%C3%A0ng-qu%E1%BB%91c-ba8b88244/",
   },
   {
-    icon: <FaYoutube />,
-    path: "",
+    icon: <FaTiktok />,
+    path: "https://www.tiktok.com/@thann1809",
   },
   {
     icon: <FaFacebook />,
-    path: "",
+    path: "https://www.facebook.com/lehoangquocthan",
   },
 ];
 
@@ -31,7 +31,7 @@ function Social({ containerStyles, iconStyles }: SocialProps) {
     <div className={containerStyles}>
       {socials.map((item, index) => {
         return (
-          <Link key={index} href={item.path} className={iconStyles}>
+          <Link key={index} href={item.path} className={iconStyles} target="_blank" rel="noopener noreferrer">
             {item.icon}
           </Link>
         );

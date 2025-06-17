@@ -18,64 +18,70 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
-    category: "fontend",
+    category: "fullstack",
     title: "project 1",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugit quisquam minima quibusdam.",
+      "A self-developed full-stack chat application with real-time messaging, built using Next.js and Laravel API, including auth, profiles, and message history.",
     stack: [
       {
-        name: "Html 5",
+        name: "Next.js",
       },
       {
-        name: "Css 3",
+        name: "Laravel",
       },
       {
-        name: "Javascript",
+        name: "Tailwind.css",
+      },
+      {
+        name: "MySQL",
       },
     ],
     image: "/assets/work/thumb1.png",
     live: "",
-    github: "",
+    github: "https://github.com/ThanhThn/chat_app-font",
   },
   {
     num: "02",
-    category: "fullstack",
+    category: "mobile",
     title: "project 2",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugit quisquam minima quibusdam.",
+      "I built a mobile app for managing student rentals, with features like rent tracking, payments, feedback, and chat.",
     stack: [
       {
-        name: "Next.js",
+        name: "React Native",
       },
       {
         name: "Tailwind.css",
       },
       {
-        name: "Node.js",
+        name: "Expo",
       },
+      {
+        name: "Laravel",
+      }
     ],
     image: "/assets/work/thumb2.png",
     live: "",
-    github: "",
+    github: "https://github.com/ThanhThn/DoAnTotNghiep",
   },
-  {
-    num: "03",
-    category: "fontend",
-    title: "project 3",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugit quisquam minima quibusdam.",
-    stack: [
-      {
-        name: "Next.js",
-      },
-      {
-        name: "Tailwind.css",
-      },
-    ],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
-  },
+  // {
+  //   num: "03",
+  //   category: "backend",
+  //   title: "project 3",
+  //   description:
+  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugit quisquam minima quibusdam.",
+  //   stack: [
+  //     {
+  //       name: "Next.js",
+  //     },
+  //     {
+  //       name: "Tailwind.css",
+  //     },
+  //   ],
+  //   image: "/assets/work/thumb3.png",
+  //   live: "",
+  //   github: "",
+  // },
 ];
 
 function Work() {
@@ -128,31 +134,35 @@ function Work() {
               <div className="border border-white/20"></div>
 
               <div className="flex items-center gap-4">
-                <Link href={project.live}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live && (
+                  <Link href={project.live} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
 
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.github && (
+                  <Link href={project.github} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Github repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

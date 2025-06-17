@@ -13,7 +13,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { motion } from "framer-motion";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { CheckCircle2Icon, Terminal } from "lucide-react";
 
 const info = [
   {
@@ -46,21 +49,21 @@ function Contact() {
           ease: "easeIn",
         },
       }}
-      className="py-6"
+      className="py-6 relative"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* Form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
             <form
-              action=""
+              // action="https://formsubmit.co/lhqthanh1809@gmail.com"
+              // method="POST"
               className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
             >
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blanditiis id, quis ullam aperiam rem deserunt in ex aliquid at
-                autem atque.
+                Got a project or idea in mind? Let's build something great
+                together — I'm just a message away.
               </p>
               {/* Input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -71,7 +74,7 @@ function Contact() {
               </div>
 
               {/* Select */}
-              <Select>
+              {/* <Select>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
@@ -83,7 +86,7 @@ function Contact() {
                     <SelectItem value="mst">Logo Design</SelectItem>
                   </SelectGroup>
                 </SelectContent>
-              </Select>
+              </Select> */}
 
               {/* Textarea */}
               <Textarea
@@ -117,6 +120,14 @@ function Contact() {
           </div>
         </div>
       </div>
+
+      {/* <Alert className="absolute w-fit right-3">
+        <CheckCircle2Icon width={20} height={20}/>
+        <AlertTitle>Success!</AlertTitle>
+        <AlertDescription>
+          Your message has been sent successfully.
+        </AlertDescription>
+      </Alert> */}
     </motion.section>
   );
 }
