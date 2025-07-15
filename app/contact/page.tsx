@@ -16,7 +16,9 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { motion } from "framer-motion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle2Icon, Terminal } from "lucide-react";
+import { CheckCircle2Icon, Loader2Icon, Terminal } from "lucide-react";
+import { useCallback, useState } from "react";
+import { appendToGoogleSheet } from "@/lib/action";
 
 const info = [
   {
@@ -32,12 +34,41 @@ const info = [
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description:
-      "04 Cau Ao Street, Dien Son Commune, Dien Khanh District, Khanh Hoa Province",
+    description: "04 Cau Ao Street, Dien Dien Commune, Khanh Hoa Province",
   },
 ];
 
 function Contact() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const sendMessage = async () => {
+    setLoading(true);
+    const data = {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      phone,
+      message,
+    };
+    const res = await fetch("/api/submit/googlesheet", {
+      body: JSON.stringify(data),
+      method: "POST",
+    });
+
+    setEmail("");
+    setFirstName("");
+    setLastName("");
+    setPhone("");
+    setMessage("");
+
+    setLoading(false);
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -67,10 +98,30 @@ function Contact() {
               </p>
               {/* Input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="firstname"
+                  placeholder="Firstname"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <Input
+                  type="lastname"
+                  placeholder="Lastname"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <Input
+                  type="email"
+                  placeholder="Email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                  type="phone"
+                  placeholder="Phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
 
               {/* Select */}
@@ -92,10 +143,24 @@ function Contact() {
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               {/* Btn */}
-              <Button size="md" className="max-w-40">
-                Send message
+              <Button
+                size="md"
+                className="w-fit flex gap-2"
+                onClick={sendMessage}
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Loader2Icon className="animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send message"
+                )}
               </Button>
             </form>
           </div>
