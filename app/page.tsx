@@ -2,6 +2,7 @@ import Photo from "@/components/Photo";
 import Social from "@/components/Social";
 import Stats from "@/components/Stats";
 import { Button } from "@/components/ui/button";
+import TextType from "@/components/ui/text-type";
 import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 
@@ -14,12 +15,10 @@ export default function Home() {
             <span className="text-xl">Software Developer</span>
             <h1 className="h1 mb-6">
               Hello I'm <br />
-              <span className="text-accent text-balance">
-                Le Hoang Quoc Thanh
-              </span>
+              <TextType initialDelay={1000} text={"Le Hoang Quoc Thanh"} textColors={["#00ff99"]} cursorClassName="text-accent"/>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              Hi, I’m a passionate developer focused on building clean,
+              Hi, I'm a passionate developer focused on building clean,
               efficient, and user-friendly applications. Welcome to my
               portfolio!
             </p>
